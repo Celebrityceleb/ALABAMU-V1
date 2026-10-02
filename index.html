@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="ALABAMU — More than just a name."
+    >
+
+    <title>ALABAMU — More Than Just A Name</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <!-- BRAND MARK -->
+
+        <a
+            href="#home"
+            class="brand-logo"
+            aria-label="ALABAMU Home"
+        >
+
+            <svg
+                class="brand-mark"
+                viewBox="0 0 32 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M3 5
+                       L10 11
+                       L16 3
+                       L22 11
+                       L29 5
+                       L26 20
+                       H6
+                       Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M6 20
+                       H26"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </svg>
+
+            <span class="brand-name">
+                ALABAMU
+            </span>
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="main-nav">
+
+            <a
+                href="#home"
+                class="nav-link active"
+            >
+                Home
+            </a>
+
+            <a
+                href="#shop"
+                class="nav-link"
+            >
+                Shop
+            </a>
+
+            <a
+                href="#about"
+                class="nav-link"
+            >
+                About
+            </a>
+
+        </nav>
+
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="header-actions">
+
+            <!-- SEARCH -->
+
+            <button
+                type="button"
+                class="icon-button"
+                id="searchButton"
+                aria-label="Search ALABAMU"
+            >
+                ⌕
+            </button>
+
+
+            <!-- ACCOUNT -->
+
+            <button
+                type="button"
+                class="icon-button"
+                id="accountButton"
+                aria-label="Account"
+            >
+                ♙
+            </button>
+
+
+            <!-- CART -->
+
+            <a
+                href="cart.html"
+                class="cart-button"
+                aria-label="Shopping cart"
+            >
+
+                <span
+                    class="cart-icon"
+                    aria-hidden="true"
+                >
+                    🛒
+                </span>
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- HAMBURGER -->
+
+            <button
+                type="button"
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MOBILE MENU
+    ========================== -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#shop">
+            Shop
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <button
+            type="button"
+            class="mobile-menu-account"
+            id="mobileAccountButton"
+        >
+            Account
+        </button>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+
+    <!-- =========================
+         SEARCH PANEL
+    ========================== -->
+
+    <div
+        class="search-panel"
+        id="searchPanel"
+        hidden
+    >
+
+        <div class="search-panel-inner">
+
+            <button
+                type="button"
+                class="search-close"
+                id="searchCloseButton"
+                aria-label="Close search"
+            >
+                CANCEL
+            </button>
+
+            <p class="eyebrow">
+                
+            </p>
+
+            <h2>
+                FIND YOUR PIECE.
+            </h2>
+
+            <div class="search-input-wrap">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+            <div
+                id="searchResults"
+                class="search-results"
+            >
+
+                <p class="placeholder-text">
+                    Search the ALABAMU collection.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ACCOUNT PANEL
+    ========================== -->
+
+    <div
+        class="account-panel"
+        id="accountPanel"
+        hidden
+    >
+
+        <div class="account-panel-inner">
+
+            <button
+                type="button"
+                class="account-close"
+                id="accountCloseButton"
+                aria-label="Close account"
+            >
+                ×
+            </button>
+
+
+            <!-- =====================
+                 LOGGED OUT
+            ====================== -->
+
+            <div
+                id="loggedOutAccount"
+                class="auth-container"
+            >
+
+                <div class="login-brand">
+                    ALABAMU
+                </div>
+
+                <p class="eyebrow">
+                    CUSTOMER ACCOUNT
+                </p>
+
+
+                <!-- AUTH TITLE -->
+
+                <h2 id="authTitle">
+                    CREATE ACCOUNT
+                </h2>
+
+
+                <p
+                    id="authMessage"
+                    class="placeholder-text"
+                ></p>
+
+
+                <!-- ONE AUTH FORM -->
+
+                <form id="authForm">
+
+
+                    <!-- FULL NAME -->
+
+                    <label
+                        id="registerNameField"
+                    >
+
+                        Full Name
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                        >
+
+                    </label>
+
+
+                    <!-- PHONE -->
+
+                    <label
+                        id="registerPhoneField"
+                    >
+
+                        Phone Number
+
+                        <input
+                            type="tel"
+                            id="registerPhone"
+                            placeholder="Enter your phone number"
+                            autocomplete="tel"
+                        >
+
+                    </label>
+
+
+                    <!-- EMAIL -->
+
+                    <label>
+
+                        Email
+
+                        <input
+                            type="email"
+                            id="authEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </label>
+
+
+                    <!-- DELIVERY ADDRESS -->
+
+                    <label
+                        id="registerAddressField"
+                    >
+
+                        Delivery Address
+
+                        <textarea
+                            id="registerAddress"
+                            placeholder="Enter your delivery address"
+                            autocomplete="street-address"
+                            rows="3"
+                        ></textarea>
+
+                    </label>
+
+
+                    <!-- STATE -->
+
+                    <label
+                        id="registerStateField"
+                    >
+
+                        State
+
+                        <input
+                            type="text"
+                            id="registerState"
+                            placeholder="Enter your state"
+                            autocomplete="address-level1"
+                        >
+
+                    </label>
+
+
+                    <!-- PASSWORD -->
+
+                    <label>
+
+                        Password
+
+                        <input
+                            type="password"
+                            id="authPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </label>
+<a
+    href="#"
+    id="forgotPasswordButton"
+    class="forgot-password-link"
+    style="display:none;"
+>
+    FORGOT PASSWORD?
+</a>
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <label
+                        id="confirmPasswordField"
+                    >
+
+                        Confirm Password
+
+                        <input
+                            type="password"
+                            id="registerConfirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                        >
+
+                    </label>
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="authSubmitButton"
+                    >
+                        CREATE ACCOUNT
+                    </button>
+
+                </form>
+
+
+                <!-- SWITCH AUTH MODE -->
+
+                <div class="auth-switch-area">
+
+                    <p id="authSwitchText">
+                        Already have an account?
+                    </p>
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="authSwitchButton"
+                    >
+                        LOGIN
+                    </button>
+
+                </div>
+
+            </div>
+
+<!-- =====================
+     LOGGED IN
+====================== -->
+
+<div
+    id="loggedInAccount"
+    class="logged-in-account"
+    style="display:none;"
+>
+
+    <!-- ACCOUNT VIEW -->
+
+    <div id="accountView">
+
+        <p class="eyebrow">
+            YOUR ACCOUNT
+        </p>
+
+        <h2 id="accountWelcome">
+            WELCOME
+        </h2>
+
+        <div class="account-details">
+
+            <p>
+                <strong>
+                    Full Name
+                </strong>
+
+                <span id="accountName">
+                    Not provided
+                </span>
+            </p>
+
+            <p>
+                <strong>
+                    Email
+                </strong>
+
+                <span id="accountEmail">
+                    Not provided
+                </span>
+            </p>
+
+            <p>
+                <strong>
+                    Phone
+                </strong>
+
+                <span id="accountPhone">
+                    Not provided
+                </span>
+            </p>
+
+            <p>
+                <strong>
+                    Delivery Address
+                </strong>
+
+                <span id="accountAddress">
+                    Not provided
+                </span>
+            </p>
+
+            <p>
+                <strong>
+                    State
+                </strong>
+
+                <span id="accountState">
+                    Not provided
+                </span>
+            </p>
+
+        </div>
+
+
+        <div class="account-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="editAccountButton"
+            >
+                EDIT ACCOUNT
+            </button>
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="viewOrdersButton"
+            >
+                MY ORDERS
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="logoutButton"
+            >
+                LOGOUT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- EDIT ACCOUNT VIEW -->
+
+    <div
+        id="editAccountForm"
+        class="edit-account-form"
+        style="display:none;"
+    >
+
+        <p class="eyebrow">
+            EDIT PROFILE
+        </p>
+
+        <h3>
+            UPDATE YOUR DETAILS
+        </h3>
+
+        <label>
+            Full Name
+
+            <input
+                type="text"
+                id="editAccountName"
+                placeholder="Your full name"
+            >
+        </label>
+
+
+        <label>
+            Phone Number
+
+            <input
+                type="tel"
+                id="editAccountPhone"
+                placeholder="Your phone number"
+            >
+        </label>
+
+
+        <label>
+            Delivery Address
+
+            <textarea
+                id="editAccountAddress"
+                rows="3"
+                placeholder="Your delivery address"
+            ></textarea>
+        </label>
+
+
+        <label>
+            State
+
+            <input
+                type="text"
+                id="editAccountState"
+                placeholder="Your state"
+            >
+        </label>
+
+
+        <button
+            type="button"
+            class="primary-button"
+            id="saveAccountButton"
+        >
+            SAVE CHANGES
+        </button>
+
+
+        <button
+            type="button"
+            class="secondary-button"
+            id="cancelEditAccountButton"
+        >
+            CANCEL
+        </button>
+
+
+        <p
+            id="editAccountMessage"
+class="placeholder-text"
+></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+            
+<!-- =========================
+     MAIN
+========================= -->
+
+    <main>
+
+
+        <!-- =====================
+             HOME / HERO
+        ====================== -->
+
+        <section
+            id="home"
+            class="page-section home-section"
+        >
+
+            <div class="hero-image">
+
+                <img
+                    src="assets/alabamu-hero-model.jpg"
+                    alt="ALABAMU clothing"
+                >
+
+            </div>
+
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    ALABAMU
+                </p>
+
+                <h1>
+                    MORE THAN
+                    <span>
+                        JUST A NAME.
+                    </span>
+                </h1>
+
+                <p class="hero-description">
+                    Dream. Create. Wear Different.
+                </p>
+
+                <a
+                    href="#shop"
+                    class="primary-button"
+                >
+                    SHOP COLLECTION
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             ABOUT ALABAMU
+        ====================== -->
+
+        <section
+            id="about"
+            class="brand-intro"
+        >
+
+            <div class="section-label">
+                THE BRAND
+            </div>
+
+
+            <div class="brand-intro-content">
+
+                <h2>
+                    Built different.
+                </h2>
+
+
+                <div>
+
+                    <p>
+                        ALABAMU is contemporary streetwear
+                        built around individuality, creativity
+                        and self-expression.
+                    </p>
+
+                    <p>
+                        Every piece is made to carry
+                        character, confidence and a sense
+                        of something different.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================
+             SHOP
+        ====================== -->
+
+        <section
+            id="shop"
+            class="page-section shop-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ALABAMU STORE
+                    </p>
+
+                    <h2>
+                        SHOP THE COLLECTION
+                    </h2>
+
+                </div>
+
+
+                <p class="section-description">
+                    Explore the available ALABAMU pieces.
+                </p>
+
+            </div>
+
+
+            <!-- CATEGORIES -->
+
+            <div
+                class="category-list"
+                id="categoryList"
+            >
+
+                <button
+                    type="button"
+                    class="category-button active"
+                    data-category="all"
+                >
+                    ALL
+                </button>
+
+
+                <button
+                    type="button"
+                    class="category-button"
+                    data-category="tshirts"
+                >
+                    T-SHIRTS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="category-button"
+                    data-category="sets"
+                >
+                    TWO-PIECE SETS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="category-button"
+                    data-category="shorts"
+                >
+                    SHORT JOGGERS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="category-button"
+                    data-category="hoodies"
+                >
+                    HOODIES
+                </button>
+
+
+                <button
+                    type="button"
+                    class="category-button"
+                    data-category="accessories"
+                >
+                    ACCESSORIES
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            >
+
+                <!-- Products are loaded from Supabase -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+
+            <svg
+                class="footer-brand-mark"
+                viewBox="0 0 32 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M3 5
+                       L10 11
+                       L16 3
+                       L22 11
+                       L29 5
+                       L26 20
+                       H6
+                       Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M6 20
+                       H26"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                />
+
+            </svg>
+
+
+            <strong>
+                ALABAMU
+            </strong>
+
+            <p>
+                MORE THAN JUST A NAME.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#shop">
+                Shop
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <button
+                type="button"
+                id="footerAccountButton"
+            >
+                Account
+            </button>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 ALABAMU
+            </span>
+
+            <span>
+                DREAM. CREATE. WEAR DIFFERENT.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>

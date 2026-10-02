@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checkout | ALABAMU</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <div class="logo">
+            ALABAMU
+        </div>
+
+
+        <nav class="desktop-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#shop">
+                Shop
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#account">
+                Account
+            </a>
+
+            <a href="cart.html">
+                Cart (<span id="cartCount">0</span>)
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- CHECKOUT -->
+
+    <main class="checkout-page">
+
+        <div class="checkout-container">
+
+
+            <div class="checkout-heading">
+
+                <p class="product-category">
+                    ALABAMU
+                </p>
+
+                <h1>
+                    CHECKOUT
+                </h1>
+
+            </div>
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <section class="checkout-section">
+
+                <h2>
+                    CUSTOMER INFORMATION
+                </h2>
+
+
+                <form id="checkoutForm">
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            required
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            required
+                            placeholder="Enter your phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerEmail">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            required
+                            placeholder="Enter your email address"
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="deliveryAddress">
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="deliveryAddress"
+                            required
+                            placeholder="Enter your delivery address"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerState">
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerState"
+                            required
+                            placeholder="Enter your state"
+                        >
+
+                    </div>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- ORDER SUMMARY -->
+
+            <section class="checkout-section">
+
+                <h2>
+                    ORDER SUMMARY
+                </h2>
+
+
+                <div id="checkoutItems">
+
+                    <!-- JavaScript will insert cart items here -->
+
+                </div>
+
+
+                <div class="checkout-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <strong id="checkoutTotal">
+                        ₦0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PAYMENT -->
+
+            <section class="checkout-section">
+
+                <h2>
+                    PAYMENT METHOD
+                </h2>
+
+
+                <label class="payment-option">
+
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="bank-transfer"
+                        checked
+                    >
+
+                    <span>
+                        Bank Transfer
+                    </span>
+
+                </label>
+
+
+                <div
+                    id="bankTransferInfo"
+                    class="bank-transfer-info"
+                >
+
+                    <p>
+                        Bank transfer details will appear here.
+                    </p>
+
+                    <p>
+                        Payment details will be provided by ALABAMU.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PLACE ORDER -->
+
+            <button
+                type="submit"
+                form="checkoutForm"
+                class="primary-button checkout-submit"
+                id="placeOrderButton"
+            >
+                PLACE ORDER
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">
+            ALABAMU
+        </div>
+
+        <p>
+            Dream. Create. Wear Different.
+        </p>
+
+        <p class="footer-copy">
+            © 2026 ALABAMU. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
