@@ -694,7 +694,23 @@ if (accountButton) {
     );
 
 }
+const footerAccountButton =
+    document.getElementById("footerAccountButton");
 
+if (footerAccountButton) {
+
+    footerAccountButton.addEventListener(
+        "click",
+        (event) => {
+
+            event.preventDefault();
+
+            openAccount();
+
+        }
+    );
+
+}
 
 // =========================================
 // MOBILE ACCOUNT BUTTON
