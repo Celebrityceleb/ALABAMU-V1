@@ -105,6 +105,8 @@ const accountButton =
 
 const mobileAccountButton =
     document.getElementById("mobileAccountButton");
+const editAccountButton =
+    document.getElementById("editAccountButton");
 
 const searchPanel =
     document.getElementById("searchPanel");
