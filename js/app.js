@@ -1155,7 +1155,8 @@ function getSelectedProduct() {
 // =========================================
 
 function renderProductPage() {
-
+console.log(
+        "ALABAMU PRODUCT PAGE LOADER RUNNING"
     const product = getSelectedProduct();
 
     if (!product) {
