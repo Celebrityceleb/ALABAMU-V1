@@ -1099,6 +1099,29 @@ const productSize =
 
 const productColour =
     document.getElementById("product-colour");
+const productCategory =
+    document.getElementById("product-category");
+
+const productName =
+    document.getElementById("product-name");
+
+const productPrice =
+    document.getElementById("product-price");
+
+const productDescription =
+    document.getElementById("product-description");
+
+const productMaterial =
+    document.getElementById("product-material");
+
+const productFit =
+    document.getElementById("product-fit");
+
+const productCare =
+    document.getElementById("product-care");
+
+const productImage =
+    document.getElementById("product-image");
 
 
 // =========================================
