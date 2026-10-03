@@ -52,7 +52,9 @@ async function loadProducts() {
 
     renderProducts();
 
-    renderSearchResults();
+renderSearchResults();
+
+renderProductPage();
 
 }
 
@@ -1148,7 +1150,125 @@ function getSelectedProduct() {
     );
 
 }
+// =========================================
+// LOAD PRODUCT DETAILS
+// =========================================
 
+function renderProductPage() {
+
+    const product = getSelectedProduct();
+
+    if (!product) {
+        return;
+    }
+
+    if (productCategory) {
+        productCategory.textContent =
+            product.category || "ALABAMU COLLECTION";
+    }
+
+    if (productName) {
+        productName.textContent =
+            product.name || "Product name not available";
+    }
+
+    if (productPrice) {
+        productPrice.textContent =
+            product.price !== null &&
+            product.price !== undefined
+                ? `₦${Number(product.price).toLocaleString()}`
+                : "Price not available yet";
+    }
+
+    if (productDescription) {
+        productDescription.textContent =
+            product.description ||
+            "Product description will appear here when added by the admin.";
+    }
+
+    if (productMaterial) {
+        productMaterial.textContent =
+            product.material ||
+            "Information coming soon.";
+    }
+
+    if (productFit) {
+        productFit.textContent =
+            product.fit ||
+            "Information coming soon.";
+    }
+
+    if (productCare) {
+        productCare.textContent =
+            product.care_instructions ||
+            "Information coming soon.";
+    }
+
+    // SIZES
+
+    if (productSize) {
+
+        productSize.innerHTML =
+            `<option value="">Select size</option>`;
+
+        (product.sizes || []).forEach(size => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = size;
+            option.textContent = size;
+
+            productSize.appendChild(option);
+
+        });
+
+    }
+
+    // COLOURS
+
+    if (productColour) {
+
+        productColour.innerHTML =
+            `<option value="">Select colour</option>`;
+
+        (product.colours || []).forEach(colour => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = colour;
+            option.textContent = colour;
+
+            productColour.appendChild(option);
+
+        });
+
+    }
+
+    // PRODUCT IMAGE
+
+    if (productImage) {
+
+        if (product.image_url) {
+
+            productImage.innerHTML = `
+                <img
+                    src="${product.image_url}"
+                    alt="${product.name || "ALABAMU product"}"
+                >
+            `;
+
+        } else {
+
+            productImage.textContent =
+                "Product image will appear here when uploaded by the admin.";
+
+        }
+
+    }
+
+}
 
 // =========================================
 // UPDATE CART COUNT
