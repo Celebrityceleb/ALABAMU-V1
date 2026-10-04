@@ -2234,29 +2234,15 @@ const customerAccountName =
             // =========================================
 
             if (
-                !whatsappSameNumber ||
-                !whatsappSameNumber.checked
-            ) {
+    !whatsappNumberConfirmed ||
+    !whatsappNumberConfirmed.checked
+) {
 
-                alert(
-                    "Please confirm that your phone number is the same as your WhatsApp number."
-                );
+    alert(
+        "Please confirm that this number is active on WhatsApp."
+    );
 
-                return;
-
-            }
-
-
-            if (
-                !whatsappNumberConfirmed ||
-                !whatsappNumberConfirmed.checked
-            ) {
-
-                alert(
-                    "Please confirm that this number is active on WhatsApp."
-                );
-
-                return;
+    return;
 
             }
 
@@ -2477,12 +2463,7 @@ subtotal: subtotal
 
 };
 
-              localStorage.setItem(
-"alabamuLatestOrder",
-JSON.stringify(
-latestOrder
-)
-);
+              
 
                 // =========================================
                 // CLEAR CART
