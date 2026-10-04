@@ -1,186 +1,576 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 
-<head>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta charset="UTF-8">
+<title>Checkout | ALABAMU</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+
+</head><body><!-- =========================
+     HEADER
+========================== -->
+
+<header class="site-header">
+
+    <a
+        href="index.html#home"
+        class="brand-logo"
+        aria-label="ALABAMU Home"
     >
 
-    <title>Checkout | ALABAMU</title>
+        <svg
+            class="brand-mark"
+            viewBox="0 0 32 24"
+            aria-hidden="true"
+        >
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+            <path
+                d="M3 5
+                   L10 11
+                   L16 3
+                   L22 11
+                   L29 5
+                   L26 20
+                   H6
+                   Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
 
-</head>
+            <path
+                d="M6 20
+                   H26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+
+        </svg>
+
+        <span class="brand-name">
+            ALABAMU
+        </span>
+
+    </a>
 
 
-<body>
+    <!-- DESKTOP NAVIGATION -->
 
-
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header class="site-header">
-
-
-        <!-- BRAND MARK -->
+    <nav class="main-nav">
 
         <a
             href="index.html#home"
-            class="brand-logo"
-            aria-label="ALABAMU Home"
+            class="nav-link"
+        >
+            Home
+        </a>
+
+        <a
+            href="index.html#shop"
+            class="nav-link"
+        >
+            Shop
+        </a>
+
+        <a
+            href="index.html#about"
+            class="nav-link"
+        >
+            About
+        </a>
+
+    </nav>
+
+
+    <!-- HEADER ACTIONS -->
+
+    <div class="header-actions">
+
+        <button
+            type="button"
+            class="icon-button"
+            id="searchButton"
+            aria-label="Search ALABAMU"
+        >
+            ⌕
+        </button>
+
+        <button
+            type="button"
+            class="icon-button"
+            id="accountButton"
+            aria-label="Account"
+        >
+            ♙
+        </button>
+
+        <a
+            href="cart.html"
+            class="cart-button"
+            aria-label="Shopping cart"
         >
 
-            <svg
-                class="brand-mark"
-                viewBox="0 0 32 24"
+            <span
+                class="cart-icon"
                 aria-hidden="true"
             >
+                🛒
+            </span>
 
-                <path
-                    d="M3 5
-                       L10 11
-                       L16 3
-                       L22 11
-                       L29 5
-                       L26 20
-                       H6
-                       Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                />
-
-                <path
-                    d="M6 20
-                       H26"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                />
-
-            </svg>
-
-            <span class="brand-name">
-                ALABAMU
+            <span id="cartCount">
+                0
             </span>
 
         </a>
 
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
 
-        <!-- DESKTOP NAVIGATION -->
+    </div>
 
-        <nav class="main-nav">
-
-            <a
-                href="index.html#home"
-                class="nav-link"
-            >
-                Home
-            </a>
-
-            <a
-                href="index.html#shop"
-                class="nav-link"
-            >
-                Shop
-            </a>
-
-            <a
-                href="index.html#about"
-                class="nav-link"
-            >
-                About
-            </a>
-
-        </nav>
+</header>
 
 
-        <!-- HEADER ACTIONS -->
+<!-- =========================
+     MOBILE MENU
+========================== -->
 
-        <div class="header-actions">
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
 
+    <a href="index.html#home">
+        Home
+    </a>
 
-            <!-- SEARCH -->
+    <a href="index.html#shop">
+        Shop
+    </a>
 
-            <button
-                type="button"
-                class="icon-button"
-                id="searchButton"
-                aria-label="Search ALABAMU"
-            >
-                ⌕
-            </button>
+    <a href="index.html#about">
+        About
+    </a>
 
+    <button
+        type="button"
+        class="mobile-menu-account"
+        id="mobileAccountButton"
+    >
+        Account
+    </button>
 
-            <!-- ACCOUNT -->
+    <a href="cart.html">
+        Cart
+    </a>
 
-            <button
-                type="button"
-                class="icon-button"
-                id="accountButton"
-                aria-label="Account"
-            >
-                ♙
-            </button>
-
-
-            <!-- CART -->
-
-            <a
-                href="cart.html"
-                class="cart-button"
-                aria-label="Shopping cart"
-            >
-
-                <span
-                    class="cart-icon"
-                    aria-hidden="true"
-                >
-                    🛒
-                </span>
-
-                <span id="cartCount">
-                    0
-                </span>
-
-            </a>
+</div>
 
 
-            <!-- HAMBURGER -->
+<!-- =========================
+     CHECKOUT
+========================== -->
 
-            <button
-                type="button"
-                class="menu-button"
-                id="menuButton"
-                aria-label="Open menu"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
+<main class="checkout-page">
+
+    <div class="checkout-container">
+
+
+        <!-- CHECKOUT HEADING -->
+
+        <div class="checkout-heading">
+
+            <p class="product-category">
+                ALABAMU
+            </p>
+
+            <h1>
+                CHECKOUT
+            </h1>
 
         </div>
 
-    </header>
+
+        <!-- =========================
+             CUSTOMER INFORMATION
+        ========================== -->
+
+        <section class="checkout-section">
+
+            <h2>
+                CUSTOMER INFORMATION
+            </h2>
 
 
-    <!-- =========================
-         MOBILE MENU
-    ========================== -->
+            <form id="checkoutForm">
 
-    <div
-        class="mobile-menu"
-        id="mobileMenu"
-    >
+
+                <div class="checkout-field">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        required
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <!-- WHATSAPP NUMBER -->
+
+                <div class="checkout-field">
+
+                    <label for="customerPhone">
+                        WhatsApp Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        required
+                        placeholder="Enter your WhatsApp number"
+                    >
+
+                </div>
+
+
+                <!-- WHATSAPP CONFIRMATIONS -->
+
+                <div class="checkout-confirmation">
+
+                    <label class="checkout-checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="whatsappSameNumber"
+                        >
+
+                        <span class="custom-check"></span>
+
+                        <span>
+                            My phone number is the same as my WhatsApp number.
+                        </span>
+
+                    </label>
+
+
+                    <label class="checkout-checkbox">
+
+                        <input
+                            type="checkbox"
+                            id="whatsappNumberConfirmed"
+                        >
+
+                        <span class="custom-check"></span>
+
+                        <span>
+                            I confirm that this number is active on WhatsApp.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="customerEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        required
+                        placeholder="Enter your email address"
+                    >
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="deliveryAddress">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="deliveryAddress"
+                        required
+                        placeholder="Enter your delivery address"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="checkout-field">
+
+                    <label for="customerState">
+                        State
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerState"
+                        required
+                        placeholder="Enter your state"
+                    >
+
+                </div>
+
+
+                <!-- =========================
+                     ORDER SUMMARY
+                ========================== -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        ORDER SUMMARY
+                    </h2>
+
+
+                    <div id="checkoutItems">
+
+                        <!-- JavaScript will insert cart items here -->
+
+                    </div>
+
+
+                    <div class="checkout-total">
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="checkoutTotal">
+                            ₦0
+                        </strong>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     PAYMENT ACCOUNT
+                ========================== -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        PAYMENT ACCOUNT
+                    </h2>
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerBankName">
+                            Bank Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerBankName"
+                            name="bank_name"
+                            placeholder="e.g. Opay"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="checkout-field">
+
+                        <label for="customerAccountName">
+                            Account Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerAccountName"
+                            name="account_name"
+                            placeholder="Name on the account you will pay from"
+                            required
+                        >
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     PAYMENT
+                ========================== -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        PAYMENT METHOD
+                    </h2>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="bank-transfer"
+                            checked
+                        >
+
+                        <span>
+                            Bank Transfer
+                        </span>
+
+                    </label>
+
+
+                    <div
+                        id="bankTransferInfo"
+                        class="bank-transfer-info"
+                    >
+
+                        <p>
+                            Bank transfer details will appear here.
+                        </p>
+
+                        <p>
+                            Payment details will be provided by ALABAMU.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================
+                     LOGIN REQUIRED
+                ========================== -->
+
+                <div
+                    id="checkoutAuthNotice"
+                    class="checkout-auth-notice"
+                    style="display:none;"
+                >
+
+                    <h3>
+                        LOGIN REQUIRED
+                    </h3>
+
+                    <p>
+                        You must be logged in to place an ALABAMU order.
+                    </p>
+
+                    <a
+                        href="index.html#account"
+                        id="checkoutLoginButton"
+                        class="primary-button"
+                    >
+                        LOGIN / CREATE ACCOUNT
+                    </a>
+
+                </div>
+
+
+                <!-- =========================
+                     PLACE ORDER
+                ========================== -->
+
+                <button
+                    type="submit"
+                    form="checkoutForm"
+                    class="primary-button checkout-submit"
+                    id="placeOrderButton"
+                >
+                    PLACE ORDER
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-brand">
+
+        <svg
+            class="footer-brand-mark"
+            viewBox="0 0 32 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M3 5
+                   L10 11
+                   L16 3
+                   L22 11
+                   L29 5
+                   L26 20
+                   H6
+                   Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M6 20
+                   H26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+
+        </svg>
+
+
+        <strong>
+            ALABAMU
+        </strong>
+
+        <p>
+            MORE THAN JUST A NAME.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
 
         <a href="index.html#home">
             Home
@@ -194,427 +584,38 @@
             About
         </a>
 
-        <button
-            type="button"
-            class="mobile-menu-account"
-            id="mobileAccountButton"
-        >
+        <a href="index.html#account">
             Account
-        </button>
-
-        <a href="cart.html">
-            Cart
         </a>
 
     </div>
 
 
-    <!-- =========================
-         CHECKOUT
-    ========================== -->
+    <div class="footer-bottom">
 
-    <main class="checkout-page">
+        <span>
+            © 2026 ALABAMU
+        </span>
 
-        <div class="checkout-container">
+        <span>
+            DREAM. CREATE. WEAR DIFFERENT.
+        </span>
 
+    </div>
 
-            <!-- CHECKOUT HEADING -->
+</footer>
 
-            <div class="checkout-heading">
 
-                <p class="product-category">
-                    ALABAMU
-                </p>
+<!-- =========================
+     SUPABASE
+========================== -->
 
-                <h1>
-                    CHECKOUT
-                </h1>
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
 
-            </div>
+<script src="js/supabase.js"></script>
 
+<script src="js/app.js"></script>
 
-            <!-- CUSTOMER INFORMATION -->
-
-<section class="checkout-section">
-
-    <h2>
-        CUSTOMER INFORMATION
-    </h2>
-
-
-    <form id="checkoutForm">
-
-
-        <div class="checkout-field">
-
-            <label for="customerName">
-                Full Name
-            </label>
-
-            <input
-                type="text"
-                id="customerName"
-                required
-                placeholder="Enter your full name"
-            >
-
-        </div>
-
-
-        <!-- WHATSAPP NUMBER -->
-
-        <div class="checkout-field">
-
-            <label for="customerPhone">
-                WhatsApp Number
-            </label>
-
-            <input
-                type="tel"
-                id="customerPhone"
-                required
-                placeholder="Enter your WhatsApp number"
-            >
-
-        </div>
-
-
-        <!-- WHATSAPP CONFIRMATIONS -->
-
-        <div class="checkout-confirmation">
-
-            <label class="checkout-checkbox">
-
-                <input
-                    type="checkbox"
-                    id="whatsappSameNumber"
-                >
-
-                <span class="custom-check"></span>
-
-                <span>
-                    My phone number is the same as my WhatsApp number.
-                </span>
-
-            </label>
-
-
-            <label class="checkout-checkbox">
-
-                <input
-                    type="checkbox"
-                    id="whatsappNumberConfirmed"
-                >
-
-                <span class="custom-check"></span>
-
-                <span>
-                    I confirm that this number is active on WhatsApp.
-                </span>
-
-            </label>
-
-        </div>
-
-
-        <div class="checkout-field">
-
-            <label for="customerEmail">
-                Email
-            </label>
-
-            <input
-                type="email"
-                id="customerEmail"
-                required
-                placeholder="Enter your email address"
-            >
-
-        </div>
-
-
-        <div class="checkout-field">
-
-            <label for="deliveryAddress">
-                Delivery Address
-            </label>
-
-            <textarea
-                id="deliveryAddress"
-                required
-                placeholder="Enter your delivery address"
-            ></textarea>
-
-        </div>
-
-
-        <div class="checkout-field">
-
-            <label for="customerState">
-                State
-            </label>
-
-            <input
-                type="text"
-                id="customerState"
-                required
-                placeholder="Enter your state"
-            >
-
-        </div>
-
-
-    </form>
-
-</section>
-          <div class="form-group">
-    <label for="customerBankName">
-        Bank Name
-    </label>
-
-    <input
-        type="text"
-        id="customerBankName"
-        name="bank_name"
-        placeholder="e.g. Opay"
-        required
-    >
-</div>
-
-<div class="form-group">
-    <label for="customerAccountName">
-        Account Name
-    </label>
-
-    <input
-        type="text"
-        id="customerAccountName"
-        name="account_name"
-        placeholder="Name on the account you will pay from"
-        required
-    >
-</div>
-
-
-            <!-- =========================
-                 ORDER SUMMARY
-            ========================== -->
-
-            <section class="checkout-section">
-
-                <h2>
-                    ORDER SUMMARY
-                </h2>
-
-
-                <div id="checkoutItems">
-
-                    <!-- JavaScript will insert cart items here -->
-
-                </div>
-
-
-                <div class="checkout-total">
-
-                    <span>
-                        TOTAL
-                    </span>
-
-                    <strong id="checkoutTotal">
-                        ₦0
-                    </strong>
-
-                </div>
-
-            </section>
-          
-            <!-- =========================
-                 PAYMENT
-            ========================== -->
-
-            <section class="checkout-section">
-
-                <h2>
-                    PAYMENT METHOD
-                </h2>
-
-
-                <label class="payment-option">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        value="bank-transfer"
-                        checked
-                    >
-
-                    <span>
-                        Bank Transfer
-                    </span>
-
-                </label>
-
-
-                <div
-                    id="bankTransferInfo"
-                    class="bank-transfer-info"
-                >
-
-                    <p>
-                        Bank transfer details will appear here.
-                    </p>
-
-                    <p>
-                        Payment details will be provided by ALABAMU.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-            <!-- =========================
-                 PLACE ORDER
-            ========================== -->
-<div
-    id="checkoutAuthNotice"
-    class="checkout-auth-notice"
-    style="display:none;"
->
-
-    <h3>LOGIN REQUIRED</h3>
-
-    <p>
-        You must be logged in to place an ALABAMU order.
-    </p>
-
-    <a
-        href="index.html#account"
-        id="checkoutLoginButton"
-        class="primary-button"
-    >
-        LOGIN / CREATE ACCOUNT
-    </a>
-
-</div>
-            <button
-                type="submit"
-                form="checkoutForm"
-                class="primary-button checkout-submit"
-                id="placeOrderButton"
-            >
-                PLACE ORDER
-            </button>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="site-footer">
-
-
-        <div class="footer-brand">
-
-            <svg
-                class="footer-brand-mark"
-                viewBox="0 0 32 24"
-                aria-hidden="true"
-            >
-
-                <path
-                    d="M3 5
-                       L10 11
-                       L16 3
-                       L22 11
-                       L29 5
-                       L26 20
-                       H6
-                       Z"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                />
-
-                <path
-                    d="M6 20
-                       H26"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                />
-
-            </svg>
-
-
-            <strong>
-                ALABAMU
-            </strong>
-
-            <p>
-                MORE THAN JUST A NAME.
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-            <a href="index.html#home">
-                Home
-            </a>
-
-            <a href="index.html#shop">
-                Shop
-            </a>
-
-            <a href="index.html#about">
-                About
-            </a>
-
-            <a href="index.html#account">
-                Account
-            </a>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 ALABAMU
-            </span>
-
-            <span>
-                DREAM. CREATE. WEAR DIFFERENT.
-            </span>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================
-         SUPABASE
-    ========================== -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-    ></script>
-
-
-    <script src="js/supabase.js"></script>
-
-    <script src="js/app.js"></script>
-
-
-</body>
-
-</html>
+</body></html>
