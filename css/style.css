@@ -3360,3 +3360,167 @@ h2 {
     }
 
 }
+/* =========================================
+   ALABAMU VIEW ORDER
+========================================= */
+
+.my-order-detail {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.my-order-detail-header {
+    padding: 24px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.my-order-detail-header .eyebrow {
+    margin-bottom: 8px;
+}
+
+.my-order-detail-header h4 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* ORDER SUMMARY */
+
+.my-order-detail-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px 24px;
+    background: #fafafa;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.my-order-detail-summary p {
+    margin: 0;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+}
+
+.my-order-detail-summary span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #777777;
+}
+
+.my-order-detail-summary strong {
+    font-size: 13px;
+    color: #111111;
+}
+
+/* PRODUCTS */
+
+.my-order-products {
+    padding: 24px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.my-order-products h5,
+.my-order-customer h5 {
+    margin: 0 0 16px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.my-order-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid #eeeeee;
+}
+
+.my-order-product > div {
+    min-width: 0;
+}
+
+.my-order-product strong {
+    font-size: 14px;
+}
+
+.my-order-product > strong {
+    color: #1677ff;
+    white-space: nowrap;
+}
+
+.my-order-product p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #777777;
+}
+
+/* DELIVERY INFORMATION */
+
+.my-order-customer {
+    padding: 24px;
+}
+
+.my-order-customer p {
+    margin: 0;
+    padding: 12px 0;
+    border-top: 1px solid #eeeeee;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.my-order-customer p strong {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: #777777;
+}
+
+.my-order-customer p br + * {
+    color: #111111;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .my-order-detail-header {
+        padding: 20px;
+    }
+
+    .my-order-detail-header h4 {
+        font-size: 21px;
+    }
+
+    .my-order-detail-summary {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .my-order-products,
+    .my-order-customer {
+        padding: 20px;
+    }
+
+    .my-order-product {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .my-order-product > strong {
+        font-size: 13px;
+    }
+
+   }
