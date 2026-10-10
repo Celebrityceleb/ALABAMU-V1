@@ -185,12 +185,50 @@ function renderProducts(category = "all") {
 
 
     const filteredProducts =
-        category === "all"
-            ? products
-            : products.filter(
-                product =>
-                    product.category === category
-            );
+    category === "all"
+        ? products
+        : products.filter(product => {
+
+            const productCategory = (
+                product.category || ""
+            ).trim().toLowerCase();
+
+            const categoryAliases = {
+                "outerwear": [
+                    "outerwear",
+                    "outwear"
+                ],
+
+                "tops-bottoms": [
+                    "tops & bottoms",
+                    "tops and bottoms",
+                    "tops-bottoms"
+                ],
+
+                "matching-sets": [
+                    "matching sets",
+                    "matching-sets"
+                ],
+
+                "traditional-wear": [
+                    "traditional wear",
+                    "traditional-wear"
+                ],
+
+                "accessories": [
+                    "accessories"
+                ],
+
+                "footwear": [
+                    "footwear"
+                ]
+            };
+
+            return (
+                categoryAliases[category] || [category]
+            ).includes(productCategory);
+
+        });
 
 
     productGrid.innerHTML = "";
