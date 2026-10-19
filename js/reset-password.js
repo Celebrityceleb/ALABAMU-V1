@@ -1,300 +1,144 @@
-const supabaseClient = window.supabaseClient;
 
-const resetForm =
-    document.getElementById("resetPasswordForm");
-
-const newPassword =
-    document.getElementById("newPassword");
-
-const confirmNewPassword =
-    document.getElementById("confirmNewPassword");
-
-const resetMessage =
-    document.getElementById("resetMessage");
-
-const resetButton =
-    document.getElementById("resetPasswordButton");
+const resetForm = document.getElementById("resetPasswordForm");
+const newPassword = document.getElementById("newPassword");
+const confirmNewPassword = document.getElementById("confirmNewPassword");
+const resetMessage = document.getElementById("resetMessage");
+const resetButton = document.getElementById("resetPasswordButton");
 
 let recoverySessionReady = false;
+let isUpdating = false;
 
+function showMessage(message) {
+    if (resetMessage) {
+        resetMessage.textContent = message;
+    }
+}
 
-// ------------------------------------
-// CHECK PASSWORD RECOVERY SESSION
-// ------------------------------------
+function setButton(disabled, text) {
+    if (resetButton) {
+        resetButton.disabled = disabled;
+        resetButton.textContent = text;
+    }
+}
 
 async function checkRecoverySession() {
+    const client = window.supabaseClient;
 
-    const {
-        data: { session },
-        error
-    } = await supabaseClient.auth.getSession();
-
-
-    if (error) {
-
-        console.error(
-            "Could not check recovery session:",
-            error
-        );
-
-        if (resetMessage) {
-            resetMessage.textContent =
-                "Could not verify the password reset session.";
-        }
-
-        return;
+    if (!client) {
+        showMessage("The account service did not load. Refresh this page and try again.");
+        return false;
     }
 
+    try {
+        const { data, error } = await client.auth.getSession();
 
-    if (session) {
-
-        recoverySessionReady = true;
-
-        if (resetMessage) {
-            resetMessage.textContent =
-                "Enter your new password below.";
+        if (error) {
+            console.error("Recovery session check failed:", error);
+            showMessage("Could not verify this reset link. Request a new one.");
+            return false;
         }
 
-        return;
-    }
+        recoverySessionReady = Boolean(data.session);
 
+        if (recoverySessionReady) {
+            showMessage("Enter your new password below.");
+        } else {
+            showMessage("Your reset link is invalid or expired. Request a new reset email.");
+        }
 
-    if (resetMessage) {
-
-        resetMessage.textContent =
-            "Waiting for password reset verification...";
+        return recoverySessionReady;
+    } catch (error) {
+        console.error("Recovery session check failed:", error);
+        showMessage("Could not verify this reset link. Request a new one.");
+        return false;
     }
 }
 
+const clientAtLoad = window.supabaseClient;
 
-// ------------------------------------
-// LISTEN FOR PASSWORD RECOVERY EVENT
-// ------------------------------------
+if (!clientAtLoad) {
+    showMessage("The account service did not load. Refresh this page and try again.");
+    setButton(true, "UPDATE PASSWORD");
+} else {
+    clientAtLoad.auth.onAuthStateChange((event, session) => {
+        console.log("ALABAMU auth event:", event);
 
-const {
-    data: authListener
-} = supabaseClient.auth.onAuthStateChange(
-    (event, session) => {
-
-        console.log(
-            "ALABAMU auth event:",
-            event
-        );
-
-
-        if (
-            event === "PASSWORD_RECOVERY" &&
-            session
-        ) {
-
+        if (event === "PASSWORD_RECOVERY" && session) {
             recoverySessionReady = true;
-
-            if (resetMessage) {
-
-                resetMessage.textContent =
-                    "Enter your new password below.";
-            }
+            showMessage("Enter your new password below.");
         }
-    }
-);
+    });
 
-
-// ------------------------------------
-// CHECK SESSION WHEN PAGE LOADS
-// ------------------------------------
-
-checkRecoverySession();
-
-
-// ------------------------------------
-// HANDLE PASSWORD UPDATE
-// ------------------------------------
+    checkRecoverySession();
+}
 
 if (resetForm) {
+    resetForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    resetForm.addEventListener(
-        "submit",
-        async (event) => {
+        if (isUpdating) return;
 
-            event.preventDefault();
+        const password = newPassword.value;
+        const confirmPassword = confirmNewPassword.value;
 
+        // Always validate matching passwords before any network request.
+        if (password !== confirmPassword) {
+            showMessage("The passwords do not match. Please check both fields.");
+            confirmNewPassword.focus();
+            return;
+        }
 
-            const password =
-                newPassword?.value || "";
+        if (password.length < 6) {
+            showMessage("Password must be at least 6 characters.");
+            newPassword.focus();
+            return;
+        }
 
-            const confirmPassword =
-                confirmNewPassword?.value || "";
+        const client = window.supabaseClient;
 
+        if (!client) {
+            showMessage("The account service did not load. Refresh and try again.");
+            return;
+        }
 
-            // ------------------------------
-            // CHECK SESSION
-            // ------------------------------
+        if (!recoverySessionReady) {
+            const ready = await checkRecoverySession();
 
-            if (!recoverySessionReady) {
+            if (!ready) return;
+        }
 
-                await checkRecoverySession();
+        isUpdating = true;
+        setButton(true, "UPDATING...");
+        showMessage("Updating your password...");
 
-                if (!recoverySessionReady) {
-
-                    if (resetMessage) {
-
-                        resetMessage.textContent =
-                            "This password reset link is invalid or has expired.";
-                    }
-
-                    return;
-                }
-            }
-
-
-            // ------------------------------
-            // CHECK PASSWORD LENGTH
-            // ------------------------------
-
-            if (password.length < 6) {
-
-                if (resetMessage) {
-
-                    resetMessage.textContent =
-                        "Password must be at least 6 characters.";
-                }
-
-                return;
-            }
-
-
-            // ------------------------------
-            // CHECK PASSWORD MATCH
-            // ------------------------------
-
-            if (password !== confirmPassword) {
-
-                if (resetMessage) {
-
-                    resetMessage.textContent =
-                        "The passwords do not match.";
-                }
-
-                return;
-            }
-
-
-            // ------------------------------
-            // DISABLE BUTTON
-            // ------------------------------
-
-            if (resetButton) {
-
-                resetButton.disabled = true;
-
-                resetButton.textContent =
-                    "UPDATING...";
-            }
-
-
-            if (resetMessage) {
-
-                resetMessage.textContent =
-                    "Updating your password...";
-            }
-
-
-            // ------------------------------
-            // UPDATE PASSWORD
-            // ------------------------------
-
-            const {
-                data,
-                error
-            } =
-                await supabaseClient.auth.updateUser({
-                    password: password
-                });
-
-
-            // ------------------------------
-            // HANDLE ERROR
-            // ------------------------------
+        try {
+            const { data, error } = await client.auth.updateUser({
+                password: password
+            });
 
             if (error) {
-
-                console.error(
-                    "Password update error:",
-                    error
-                );
-
-
-                if (resetMessage) {
-
-                    resetMessage.textContent =
-                        "Could not update your password. Please request a new reset link.";
-                }
-
-
-                if (resetButton) {
-
-                    resetButton.disabled = false;
-
-                    resetButton.textContent =
-                        "UPDATE PASSWORD";
-                }
-
+                console.error("Password update error:", error);
+                showMessage("Password update failed. Request a fresh reset email and try again.");
+                setButton(false, "UPDATE PASSWORD");
                 return;
             }
 
-
-            // ------------------------------
-            // CONFIRM SUCCESS
-            // ------------------------------
-
-            if (data?.user) {
-
-                console.log(
-                    "ALABAMU password updated successfully."
-                );
-
-                if (resetMessage) {
-
-                    resetMessage.textContent =
-                        "Password updated successfully. You can now log in with your new password.";
-                }
-
-
-                if (resetButton) {
-
-                    resetButton.disabled = true;
-
-                    resetButton.textContent =
-                        "PASSWORD UPDATED";
-                }
-
-            } else {
-
-                if (resetMessage) {
-
-                    resetMessage.textContent =
-                        "Password update completed. Please return to ALABAMU and log in.";
-                }
-
-
-                if (resetButton) {
-
-                    resetButton.disabled = true;
-
-                    resetButton.textContent =
-                        "PASSWORD UPDATED";
-                }
+            if (!data?.user) {
+                showMessage("No confirmation was returned. Please try again with a fresh reset link.");
+                setButton(false, "UPDATE PASSWORD");
+                return;
             }
+
+            showMessage("Password updated successfully. You can now log in using your new password.");
+            setButton(true, "PASSWORD UPDATED");
+            resetForm.reset();
+
+        } catch (error) {
+            console.error("Unexpected password update error:", error);
+            showMessage("Something went wrong. Please request a new reset email and try again.");
+            setButton(false, "UPDATE PASSWORD");
+        } finally {
+            isUpdating = false;
         }
-    );
+    });
 }
-
-
-// ------------------------------------
-// CLEAN UP AUTH LISTENER
-// ------------------------------------
-
-// The listener remains active while this page
-// is open. No sign-out is performed here because
-// Supabase needs the recovery session to complete
-// the password update correctly.
