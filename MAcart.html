@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cart | ALABAMU</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="site-header">
+
+    <a
+        href="index.html#home"
+        class="brand-logo"
+        aria-label="ALABAMU Home"
+    >
+
+        <svg
+            class="brand-mark"
+            viewBox="0 0 32 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M3 5
+                   L10 11
+                   L16 3
+                   L22 11
+                   L29 5
+                   L26 20
+                   H6
+                   Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M6 20 H26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+
+        </svg>
+
+        <span class="brand-name">
+            ALABAMU
+        </span>
+
+    </a>
+
+
+    <nav class="main-nav">
+
+        <a
+            href="index.html#home"
+            class="nav-link"
+        >
+            Home
+        </a>
+
+        <a
+            href="index.html#shop"
+            class="nav-link"
+        >
+            Shop
+        </a>
+
+        <a
+            href="index.html#about"
+            class="nav-link"
+        >
+            About
+        </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+        <button
+            type="button"
+            class="icon-button"
+            id="searchButton"
+            aria-label="Search ALABAMU"
+        >
+            ⌕
+        </button>
+
+
+        <button
+            type="button"
+            class="icon-button"
+            id="accountButton"
+            aria-label="Account"
+        >
+            ♙
+        </button>
+
+
+        <a
+            href="cart.html"
+            class="cart-button"
+            aria-label="Shopping cart"
+        >
+
+            <span
+                class="cart-icon"
+                aria-hidden="true"
+            >
+                🛒
+            </span>
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     MOBILE MENU
+========================================== -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a href="index.html#home">
+        Home
+    </a>
+
+    <a href="index.html#shop">
+        Shop
+    </a>
+
+    <a href="index.html#about">
+        About
+    </a>
+
+    <button
+        type="button"
+        class="mobile-menu-account"
+        id="mobileAccountButton"
+    >
+        Account
+    </button>
+
+    <a href="cart.html">
+        Cart
+    </a>
+
+</div>
+
+
+<!-- =========================================
+     CART
+========================================== -->
+
+<main class="cart-page">
+
+    <div class="cart-container">
+
+
+        <!-- CART HEADER -->
+
+        <div class="cart-heading">
+
+            <p class="cart-eyebrow">
+                ALABAMU / SHOPPING BAG
+            </p>
+
+            <h1>
+                YOUR CART
+            </h1>
+
+        </div>
+
+
+        <!-- CART ITEMS -->
+
+        <div
+            id="cartItems"
+            class="cart-items"
+        >
+
+            <!--
+                Cart products are inserted here
+                by app.js.
+            -->
+
+        </div>
+
+
+        <!-- CART SUMMARY -->
+
+        <div
+            id="cartSummary"
+            class="cart-summary"
+        >
+
+            <div class="cart-summary-header">
+
+                <span>
+                    ORDER SUMMARY
+                </span>
+
+            </div>
+
+
+            <div class="cart-total-row">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <strong id="cartTotal">
+                    ₦0
+                </strong>
+
+            </div>
+
+
+            <div class="cart-actions">
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="checkoutButton"
+                >
+                    PROCEED TO CHECKOUT
+                </button>
+
+
+                <a
+                    href="index.html#shop"
+                    class="secondary-cart-button"
+                >
+                    CONTINUE SHOPPING
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-brand">
+
+        <svg
+            class="footer-brand-mark"
+            viewBox="0 0 32 24"
+            aria-hidden="true"
+        >
+
+            <path
+                d="M3 5
+                   L10 11
+                   L16 3
+                   L22 11
+                   L29 5
+                   L26 20
+                   H6
+                   Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M6 20 H26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            />
+
+        </svg>
+
+        <strong>
+            ALABAMU
+        </strong>
+
+        <p>
+            MORE THAN JUST A NAME.
+        </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="index.html#home">
+            Home
+        </a>
+
+        <a href="index.html#shop">
+            Shop
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
+        <a href="index.html#account">
+            Account
+        </a>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 ALABAMU
+        </span>
+
+        <span>
+            DREAM. CREATE. WEAR DIFFERENT.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     APP
+========================================== -->
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
