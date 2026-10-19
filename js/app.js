@@ -1564,20 +1564,23 @@ if (forgotPasswordButton) {
     );
 
 
-            if (error) {
+            
+if (error) {
+    console.error("Password reset error:", error);
+    console.error("Reset error details:", {
+        message: error.message,
+        status: error.status,
+        name: error.name
+    });
 
-                console.error(
-                    "Password reset error:",
-                    error
-                );
+    if (authMessage) {
+        authMessage.textContent =
+            "Reset email error: " + error.message;
+    }
 
-                if (authMessage) {
-                    authMessage.textContent =
-                        "Could not send the reset email. Please try again.";
-                }
-
-                return;
-            }
+    return;
+}
+           
 
 
             if (authMessage) {
