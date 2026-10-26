@@ -1551,8 +1551,8 @@ if (forgotPasswordButton) {
             }
 
 
-            const resetUrl =
-    new URL("reset-password.html", window.location.href).href;
+           const resetUrl =
+    "https://celebrityceleb.github.io/ALABAMU-V1/reset-password.html";
 
 
            const { error } =
