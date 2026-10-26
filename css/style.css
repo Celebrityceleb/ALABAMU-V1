@@ -3607,3 +3607,204 @@ h2 {
         letter-spacing: 0.05em;
     }
 }
+/* =========================================
+   ALABAMU — RESET PASSWORD PAGE
+   Premium Black & Gold
+========================================= */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(197, 165, 104, 0.12),
+            transparent 55%
+        ),
+        #101010;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 430px;
+    padding: 36px 28px;
+    box-sizing: border-box;
+
+    background: #191919;
+    border: 1px solid rgba(197, 165, 104, 0.28);
+    border-radius: 16px;
+
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.4);
+}
+
+.auth-container .login-brand {
+    margin-bottom: 28px;
+    text-align: center;
+    color: #d6b477;
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 5px;
+}
+
+.auth-container .eyebrow {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #c5a568;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.auth-container h1 {
+    margin: 0 0 22px;
+    text-align: center;
+    color: #f5f1e8;
+    font-size: 25px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+#resetMessage {
+    margin: 0 0 24px;
+    padding: 13px 14px;
+    color: #d8d2c6;
+    background: #222222;
+    border: 1px solid #35332e;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+#resetPasswordForm {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+#resetPasswordForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: #e8e1d5;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#resetPasswordForm input {
+    width: 100%;
+    min-height: 49px;
+    padding: 13px 14px;
+    box-sizing: border-box;
+
+    color: #ffffff;
+    background: #111111;
+    border: 1px solid #3b3933;
+    border-radius: 8px;
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+#resetPasswordForm input::placeholder {
+    color: #817c72;
+}
+
+#resetPasswordForm input:focus {
+    border-color: #c5a568;
+    box-shadow: 0 0 0 3px rgba(197, 165, 104, 0.12);
+}
+
+#resetPasswordButton {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 5px;
+    padding: 14px 18px;
+
+    color: #17130c;
+    background: linear-gradient(135deg, #dfc58f, #b99452);
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+    transition: filter 0.2s ease,
+                transform 0.2s ease;
+}
+
+#resetPasswordButton:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+#resetPasswordButton:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+.auth-container > a.secondary-button {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    margin-top: 12px;
+    padding: 13px 16px;
+    box-sizing: border-box;
+
+    color: #d6b477;
+    background: transparent;
+    border: 1px solid #49402e;
+    border-radius: 8px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.auth-container > a.secondary-button:hover {
+    background: rgba(197, 165, 104, 0.08);
+    border-color: #c5a568;
+}
+
+@media (max-width: 480px) {
+    .auth-page {
+        padding: 20px 14px;
+    }
+
+    .auth-container {
+        padding: 30px 22px;
+        border-radius: 13px;
+    }
+
+    .auth-container .login-brand {
+        font-size: 24px;
+    }
+
+    .auth-container h1 {
+        font-size: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #resetPasswordForm input,
+    #resetPasswordButton,
+    .auth-container > a.secondary-button {
+        transition: none;
+    }
+   }
