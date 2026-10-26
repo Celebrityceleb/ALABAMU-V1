@@ -4002,36 +4002,33 @@ if (authForm) {
                 error
             } =
                 await supabaseClient
-                    .auth
-                    .signUp({
+    .auth
+    .signUp({
 
-                        email:
-                            email,
+        email: email,
 
-                        password:
-                            password,
+        password: password,
 
-                        options: {
+        options: {
 
-                            data: {
+            emailRedirectTo:
+                "https://celebrityceleb.github.io/ALABAMU-V1/",
 
-                                full_name:
-                                    fullName,
+            data: {
 
-                                phone:
-                                    phone,
+                full_name: fullName,
 
-                                delivery_address:
-                                    address,
+                phone: phone,
 
-                                state:
-                                    state
+                delivery_address: address,
 
-                            }
+                state: state
 
-                        }
+            }
 
-                    });
+        }
+
+    });
 
 
             if (error) {
