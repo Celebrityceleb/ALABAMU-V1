@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ALABAMU Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
+</head>
+
+
+<body class="admin-dashboard-page">
+
+
+    <div class="admin-layout">
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="admin-sidebar">
+
+
+            <div class="admin-sidebar-brand">
+
+                <div class="admin-brand-mark">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        ALABAMU
+                    </strong>
+
+                    <span>
+                        ADMIN
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="admin-navigation">
+
+
+                <button
+                    type="button"
+                    class="admin-nav-button active"
+                    data-section="dashboard"
+                >
+                    DASHBOARD
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    data-section="orders"
+                >
+                    ORDERS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    data-section="products"
+                >
+                    PRODUCTS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    data-section="customers"
+                >
+                    CUSTOMERS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    data-section="settings"
+                >
+                    SETTINGS
+                </button>
+
+
+            </nav>
+
+
+            <div class="admin-sidebar-bottom">
+
+                <a
+                    href="../index.html"
+                    class="admin-view-store"
+                >
+                    VIEW STORE
+                </a>
+
+
+                <button
+                    type="button"
+                    id="adminLogoutButton"
+                    class="admin-logout-button"
+                >
+                    LOGOUT
+                </button>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <main class="admin-main">
+
+
+            <header class="admin-topbar">
+
+                <div>
+
+                    <p class="admin-eyebrow">
+                        ALABAMU MANAGEMENT
+                    </p>
+
+                    <h1 id="adminPageTitle">
+                        DASHBOARD
+                    </h1>
+
+                </div>
+
+
+                <div class="admin-user-area">
+
+                    <span>
+                        ADMIN
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- DASHBOARD SECTION -->
+
+            <section
+                id="section-dashboard"
+                class="admin-section active"
+            >
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-eyebrow">
+                            STORE OVERVIEW
+                        </p>
+
+                        <h2>
+                            DASHBOARD
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-stat-grid">
+
+
+                    <article class="admin-stat-card">
+
+                        <span>
+                            ORDERS
+                        </span>
+
+                        <strong id="statOrders">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <article class="admin-stat-card">
+
+                        <span>
+                            PRODUCTS
+                        </span>
+
+                        <strong id="statProducts">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <article class="admin-stat-card">
+
+                        <span>
+                            CUSTOMERS
+                        </span>
+
+                        <strong id="statCustomers">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <article class="admin-stat-card">
+
+                        <span>
+                            PENDING PAYMENTS
+                        </span>
+
+                        <strong id="statPendingPayments">
+                            0
+                        </strong>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="admin-dashboard-placeholder">
+
+                    <p class="admin-eyebrow">
+                        NEXT
+                    </p>
+
+                    <h3>
+                        STORE MANAGEMENT
+                    </h3>
+
+                    <p>
+                        Orders, products, customers and
+                        store settings will appear here.
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ORDERS -->
+
+<section
+    id="section-orders"
+    class="admin-section"
+>
+    <div class="admin-section-heading">
+        <div>
+            <p class="admin-eyebrow">SALES</p>
+            <h2>ORDERS</h2>
+            <p class="admin-section-description">
+                Review customer orders, payments and fulfilment.
+            </p>
+        </div>
+
+        <button
+            type="button"
+            id="refreshOrdersButton"
+            class="admin-primary-button admin-small-button"
+        >
+            REFRESH ORDERS
+        </button>
+    </div>
+
+    <div class="admin-order-summary">
+        <div class="admin-order-summary-card">
+            <span>Total orders</span>
+            <strong id="ordersTotalCount">0</strong>
+        </div>
+
+        <div class="admin-order-summary-card">
+            <span>Awaiting payment</span>
+            <strong id="ordersAwaitingPayment">0</strong>
+        </div>
+
+        <div class="admin-order-summary-card">
+            <span>Paid</span>
+            <strong id="ordersPaidCount">0</strong>
+        </div>
+
+        <div class="admin-order-summary-card">
+            <span>Processing</span>
+            <strong id="ordersProcessingCount">0</strong>
+        </div>
+    </div>
+
+  <div class="admin-order-tabs" id="adminOrderTabs" role="group" aria-label="Order views">
+    <button type="button" class="admin-order-tab active" data-order-view="new">
+        New Orders <span id="ordersNewCount">0</span>
+    </button>
+
+    <button type="button" class="admin-order-tab" data-order-view="awaiting">
+        Awaiting Payment <span id="ordersAwaitingViewCount">0</span>
+    </button>
+
+    <button type="button" class="admin-order-tab" data-order-view="processing">
+        Processing / Shipped
+    </button>
+
+    <button type="button" class="admin-order-tab" data-order-view="delivered">
+        Delivered
+    </button>
+
+    <button type="button" class="admin-order-tab" data-order-view="all">
+        All Orders
+    </button>
+  </div>
+    <div class="admin-orders-toolbar">
+        <input
+            type="search"
+            id="ordersSearch"
+            placeholder="Search order reference or customer..."
+            aria-label="Search orders"
+        >
+
+        <select id="ordersStatusFilter" aria-label="Filter orders">
+            <option value="all">All order statuses</option>
+            <option value="pending">Pending</option>
+            <option value="processing">Processing</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+
+        <select id="ordersPaymentFilter" aria-label="Filter payments">
+            <option value="all">All payment statuses</option>
+            <option value="pending">Payment pending</option>
+            <option value="paid">Paid</option>
+            <option value="failed">Failed</option>
+        </select>
+    </div>
+
+    <div id="adminOrdersList">
+        <p class="admin-placeholder">
+            Loading orders...
+        </p>
+    </div>
+</section>
+
+
+
+            <!-- PRODUCTS -->
+
+            <section
+                id="section-products"
+                class="admin-section"
+            >
+
+                <div class="admin-section-heading">
+
+                    <div>
+
+                        <p class="admin-eyebrow">
+                            CATALOGUE
+                        </p>
+
+                        <h2>
+                            PRODUCTS
+                        </h2>
+
+                    </div>
+
+
+                    <button
+    type="button"
+    id="addProductButton"
+    class="admin-primary-button admin-small-button"
+>
+    + ADD PRODUCT
+                    </button>
+
+                </div>
+
+
+                <div id="adminProductsList">
+
+                    <p class="admin-placeholder">
+                        Products will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+<!-- CUSTOMERS -->
+<section id="section-customers" class="admin-section">
+    <div class="admin-section-heading">
+        <div>
+            <p class="admin-eyebrow">CUSTOMER BASE</p>
+            <h2>CUSTOMERS</h2>
+        </div>
+    </div>
+
+    <div class="admin-customer-search">
+        <label for="adminCustomerSearch">SEARCH CUSTOMERS</label>
+        <input
+            type="search"
+            id="adminCustomerSearch"
+            placeholder="Search by customer email..."
+            autocomplete="off"
+        />
+        <p id="adminCustomerSearchCount" class="admin-placeholder">
+            Loading customers...
+        </p>
+    </div>
+
+    <div id="adminCustomersList">
+        <p class="admin-placeholder">Customers will appear here.</p>
+    </div>
+</section>
+
+
+            
+<!-- SETTINGS SECTION -->
+<section id="section-settings" class="admin-section">
+
+    <div class="admin-section-heading">
+        <div>
+            <p class="admin-eyebrow">STORE CONFIGURATION</p>
+            <h2>SETTINGS</h2>
+            <p>Manage the information displayed across your store.</p>
+        </div>
+    </div>
+
+    <form id="adminSettingsForm">
+
+        <h3>Store information</h3>
+
+        <div class="settings-field">
+            <label for="settingStoreName">Store name</label>
+            <input
+                type="text"
+                id="settingStoreName"
+                maxlength="100"
+                required
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="settingTagline">Store tagline</label>
+            <input
+                type="text"
+                id="settingTagline"
+                maxlength="250"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="settingAboutText">About ALABAMU</label>
+            <textarea
+                id="settingAboutText"
+                rows="5"
+                maxlength="5000"
+            ></textarea>
+        </div>
+
+        <h3>Contact information</h3>
+
+        <div class="settings-field">
+            <label for="settingContactEmail">Contact email</label>
+            <input
+                type="email"
+                id="settingContactEmail"
+                maxlength="254"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="settingWhatsapp">WhatsApp number</label>
+            <input
+                type="tel"
+                id="settingWhatsapp"
+                placeholder="Example: 2348012345678"
+                maxlength="20"
+            >
+        </div>
+
+        <h3>Delivery information</h3>
+
+        <div class="settings-field">
+            <label for="settingDeliveryInformation">
+                Delivery details shown to customers
+            </label>
+            <textarea
+                id="settingDeliveryInformation"
+                rows="5"
+                maxlength="5000"
+            ></textarea>
+        </div>
+
+        <h3>Bank transfer details</h3>
+
+        <div class="settings-field">
+            <label for="settingBankName">Bank name</label>
+            <input
+                type="text"
+                id="settingBankName"
+                maxlength="100"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="settingAccountName">Account name</label>
+            <input
+                type="text"
+                id="settingAccountName"
+                maxlength="150"
+            >
+        </div>
+
+        <div class="settings-field">
+            <label for="settingAccountNumber">Account number</label>
+            <input
+                type="text"
+                id="settingAccountNumber"
+                inputmode="numeric"
+                maxlength="20"
+            >
+        </div>
+
+        <button type="submit" id="saveAdminSettings">
+            Save settings
+        </button>
+
+        <p
+            id="adminSettingsMessage"
+            role="status"
+            aria-live="polite"
+        ></p>
+
+    </form>
+
+</section>
+<!-- END SETTINGS SECTION -->
+
+
+
+        </main>
+
+
+    </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<script>
+    if (!window.supabase || !window.supabase.createClient) {
+        console.error(
+            "ALABAMU ADMIN: Supabase library failed to load.",
+            window.supabase
+        );
+    } else {
+        const ADMIN_SUPABASE_URL =
+            "https://snfhtyznypoukxmhetkl.supabase.co";
+
+        const ADMIN_SUPABASE_KEY =
+            "sb_publishable_Fat6XU5USrik_wEtT0mRfQ_ZcQM-cej";
+
+        window.supabaseClient =
+            window.supabase.createClient(
+                ADMIN_SUPABASE_URL,
+                ADMIN_SUPABASE_KEY,
+                {
+                    auth: {
+                        persistSession: true,
+                        autoRefreshToken: true,
+                        detectSessionInUrl: true,
+                        storageKey: "alabamu-admin-auth"
+                    }
+                }
+            );
+
+        console.log(
+            "ALABAMU ADMIN: Supabase client initialized."
+        );
+    }
+</script>
+
+<script src="admin.js"></script>
+
+
+
+</body>
+
+</html>
